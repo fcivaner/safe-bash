@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# utility to edit shell commands before execution.
+
+tmpdir=$(dirname "$(mktemp -u)")/commands/
+mkdir -p "$tmpdir"
+tmpfile=$(mktemp -p "$tmpdir")
+
+if [[ $VISUAL == "" ]];
+then
+   VISUAL=nano 
+fi
+
+echo "created command: $tmpfile"
+$VISUAL "$tmpfile"
+cmd=$(cat "$tmpfile")
+
+if [[ $cmd != "" ]];
+then
+    echo "running: $cmd"
+    source "$tmpfile"
+else
+    echo "cancelled."
+fi
+
+rm "$tmpfile"

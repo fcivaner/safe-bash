@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# utility to confirm before executing a shell command.
+# based on https://askubuntu.com/a/22257.
+
+me=$(basename "${BASH_SOURCE[0]}")
+
+function usage {
+    echo "$me: utility to confirm commands before execution."
+    echo ""
+    echo "usage: $me CMD"
+    exit
+}
+
+if [ "$#" -ne 1 ]; then
+    usage
+fi
+
+read -p "do you want to run $*? (y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "running $*"
+    "$@"
+else
+    echo "cancelled."
+fi

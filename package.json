@@ -1,0 +1,27 @@
+{
+  "name": "safe-bash",
+  "version": "1.0.6",
+  "description": "scripts for a safer bash",
+  "bin": {
+    "confirm": "./bin/confirm",
+    "edit-execute": "./bin/edit-execute",
+    "history-clean-pattern": "./bin/history-clean-pattern"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcivaner/safe-bash.git"
+  },
+  "keywords": [
+    "safe-bash",
+    "confirm",
+    "edit-execute",
+    "history-clean-pattern"
+  ],
+  "author": "fcivaner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fcivaner/safe-bash/issues"
+  },
+  "homepage": "https://github.com/fcivaner/safe-bash#readme",
+  "dependencies": {}
+}
